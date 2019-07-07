@@ -14,10 +14,6 @@
     - libapache2-mod-php7.2
     - python-mysqldb
 
-#- name: Restart MariaDB e habilita no boot
-#  service: name=mariadb state=restarted enabled=yes
-#  become: yes
-
 - name: Restart apache e habilita no boot
   service: name=apache2 state=restarted 
   become: yes
