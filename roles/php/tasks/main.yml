@@ -1,0 +1,59 @@
+---
+# tasks file for php
+- name: Baixando repo-epel
+  get_url:
+      url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      dest: /tmp/epel-release-latest-7.noarch.rpm
+      mode: 0777
+  become: yes
+
+- name: Executando remi-release-7
+  yum: name=/tmp/epel-release-latest-7.noarch.rpm state=present
+  become: yes
+
+- name: Instalando yum-utils/epel-release
+  yum: name={{ item }} state=present
+  with_items:
+    - epel-release
+    - yum-utils
+  become: yes
+
+- name: Baixando repositório remi-release-7
+  get_url:
+      url: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+      dest: /tmp/remi-release-7.rpm
+      mode: 0777
+  become: yes
+
+- name: Executando remi-release-7
+  yum: name=/tmp/remi-release-7.rpm state=present
+  become: yes
+
+- name: Habilitar remi-php71
+  shell: yum-config-manager --enable remi-php71
+  become: yes
+
+- name: Habilitar remi-php72
+  shell: yum-config-manager --enable remi-php72
+  become: yes
+
+- name: Habilitar remi-php73
+  shell: yum-config-manager --enable remi-php73
+  become: yes
+
+#- name: Atualiza repositorio 
+#  yum: name=* state=latest
+#  become: yes
+
+- name: Instalando php70
+  yum: name={{ item }} enablerepo=epel,remi,remi-php70 state=installed
+  with_items:
+    - php 
+    - php-common 
+    - php-opcache 
+    - php-mcrypt 
+    - php-cli 
+    - php-gd 
+    - php-curl 
+    - php-mysql
+  become: yes

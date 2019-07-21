@@ -1,21 +1,21 @@
 --- 
-- name: Atualizando repositório
-  apt: update_cache=yes cache_valid_time=3600
+- name: Atualiza repositorio 
+  yum: name=* state=latest
   become: yes
- 
+
 - name: Instalando Dependencias do wordpress
-  apt: name={{ item }} state=present
+  yum: name={{ item }} state=present
   become: yes
   with_items:
-    - apache2
-    - mysql-server
-    - php7.2-mysqlnd
-    - php7.2
-    - libapache2-mod-php7.2
-    - python-mysqldb
-
-- name: Restart apache e habilita no boot
-  service: name=apache2 state=restarted 
+    - httpd
+    - mariadb-server
+    - mariadb
+    - MySQL-python 
+ 
+- name: Start MariaDB e habilita no boot
+  service: name=mariadb state=started enabled=yes
   become: yes
 
-
+- name: Restart apache2 
+  service: name=apache2 state=restarted 
+  become: yes
