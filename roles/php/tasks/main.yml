@@ -29,21 +29,9 @@
   yum: name=/tmp/remi-release-7.rpm state=present
   become: yes
 
-- name: Habilitar remi-php71
-  shell: yum-config-manager --enable remi-php71
-  become: yes
-
-- name: Habilitar remi-php72
-  shell: yum-config-manager --enable remi-php72
-  become: yes
-
 - name: Habilitar remi-php73
   shell: yum-config-manager --enable remi-php73
   become: yes
-
-#- name: Atualiza repositorio 
-#  yum: name=* state=latest
-#  become: yes
 
 - name: Instalando php70
   yum: name={{ item }} enablerepo=epel,remi,remi-php70 state=installed
