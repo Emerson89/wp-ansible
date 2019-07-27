@@ -1,9 +1,9 @@
 - hosts: hosts
   
   roles:
-   - php
-   - server
-   - mysql
-   - wordpress
+     - php
+     - server
+     - mysql
+     - wordpress
 
 

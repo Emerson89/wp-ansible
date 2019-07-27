@@ -1,16 +1,5 @@
 ---
 # tasks file for php
-- name: Baixando repo-epel
-  get_url:
-      url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-      dest: /tmp/epel-release-latest-7.noarch.rpm
-      mode: 0777
-  become: yes
-
-- name: Executando remi-release-7
-  yum: name=/tmp/epel-release-latest-7.noarch.rpm state=present
-  become: yes
-
 - name: Instalando yum-utils/epel-release
   yum: name={{ item }} state=present
   with_items:
@@ -25,23 +14,44 @@
       mode: 0777
   become: yes
 
-- name: Executando remi-release-7
+- name: Adicionando repositório remi-release-7
   yum: name=/tmp/remi-release-7.rpm state=present
   become: yes
 
-- name: Habilitar remi-php73
+- name: Habilitando remi-php73
   shell: yum-config-manager --enable remi-php73
   become: yes
 
-- name: Instalando php70
-  yum: name={{ item }} enablerepo=epel,remi,remi-php70 state=installed
+- name: Atualizando repositório
+  yum: name=* state=latest
+  become: yes
+
+- name: Instalando php73
+  yum: name={{ item }} state=present
   with_items:
-    - php 
+    - php
+    - php-fpm
     - php-common 
     - php-opcache 
     - php-mcrypt 
     - php-cli 
     - php-gd 
     - php-curl 
-    - php-mysql
+    - php-mysqlnd
   become: yes
+
+- name: Copia de arquivo www.conf
+  copy:
+    src: /etc/ansible/playbooks/www.conf 
+    dest: /etc/php-fpm.d/www.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: no
+  become: yes
+
+- name: Start e habilitando no boot php-fpm
+  service: name=php-fpm state=started enabled=yes
+  become: yes
+
+  

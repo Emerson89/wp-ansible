@@ -6,14 +6,20 @@
     validate_certs=no
 
 - name: Extraindo o wordpress
-  unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/html copy=no
+  unarchive: src=/tmp/wordpress.tar.gz dest=/usr/share/nginx/html/ copy=no
   become: yes
 
 - name: Criando página PHP info
-  shell: echo "<?php phpinfo (); ?>" > /var/www/html/info.php
+  shell: echo "<?php phpinfo (); ?>" > /usr/share/nginx/html/info.php
   become: yes
 
 - name: Criando arquivo de configuração padrão
-  copy: src=/etc/ansible/playbooks/wp-config-sample.php dest=/var/www/html/wordpress/wp-config.php mode=0644
+  copy: 
+    src: /etc/ansible/playbooks/wp-config.php 
+    dest: /usr/share/nginx/html/wordpress/wp-config.php 
+    owner: root
+    group: root
+    mode: 0644
+    backup: no
   become: yes
 
