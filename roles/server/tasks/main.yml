@@ -35,6 +35,6 @@
     backup: no
   become: yes
 
-- name: Restart nginx
+- name: Restart nginx e habilita no boot
   service: name=nginx state=restarted enabled=yes
   become: yes
