@@ -13,20 +13,10 @@
   shell: echo "<?php phpinfo (); ?>" > /usr/share/nginx/html/info.php
   become: yes
 
-- name: Criando arquivo de configuração padrão
-  command: mv /usr/share/nginx/html/wordpress/wp-config-sample.php /usr/share/nginx/html/wordpress/wp-config.php creates=/usr/share/nginx/html/wordpress/wp-config.php
-  become: yes
-  
-- name: Atualizando arquivo wp-config
-  shell:  sed -i '/database_name_here/ s/database_name_here/MyWP/' /usr/share/nginx/html/wordpress/wp-config.php
-  become: yes
-
-- name: Atualizando arquivo wp-config
-  shell:  sed -i '/username_here/ s/username_here/wpUser/' /usr/share/nginx/html/wordpress/wp-config.php
-  become: yes
-
-- name: Atualizando arquivo wp-config
-  shell:  sed -i '/password_here/ s/password_here/worddb/' /usr/share/nginx/html/wordpress/wp-config.php
+- name: Template arquivo wp-config
+  template:
+     src: wp-config.php.j2
+     dest: /usr/share/nginx/html/wordpress/wp-config.php
   become: yes
 
 
