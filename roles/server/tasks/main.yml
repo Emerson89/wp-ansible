@@ -25,14 +25,10 @@
   service: name=mariadb state=restarted enabled=yes
   become: yes
 
-- name: Copiando arquivo default.conf
-  copy:
-    src: /etc/ansible/playbooks/default.conf
-    dest: /etc/nginx/conf.d/default.conf
-    owner: root
-    group: root
-    mode: 0644
-    backup: no
+- name: Template arquivo default.conf
+  template:
+     src: default.conf.j2
+     dest: /etc/nginx/conf.d/default.conf
   become: yes
 
 - name: Restart nginx e habilita no boot
