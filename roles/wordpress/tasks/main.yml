@@ -14,12 +14,8 @@
   become: yes
 
 - name: Criando arquivo de configuração padrão
-  copy: 
-    src: /etc/ansible/playbooks/wp-config.php 
-    dest: /usr/share/nginx/html/wordpress/wp-config.php 
-    owner: root
-    group: root
-    mode: 0644
-    backup: no
+  command: mv /usr/share/nginx/html/wordpress/wp-config-sample.php /usr/share/nginx/html/wordpress/wp-config.php creates=/usr/share/nginx/html/wordpress/wp-config.php
   become: yes
+  
+  
 
