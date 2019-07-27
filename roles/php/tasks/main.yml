@@ -40,16 +40,14 @@
     - php-mysqlnd
   become: yes
 
-- name: Copia de arquivo www.conf
-  copy:
-    src: /etc/ansible/playbooks/www.conf 
-    dest: /etc/php-fpm.d/www.conf
-    owner: root
-    group: root
-    mode: 0644
-    backup: no
+- name : Substituindo user www.conf
+  shell: sed -i 's/user = apache/user = nginx/g' /etc/php-fpm.d/www.conf
   become: yes
-
+  
+- name: Substituindo group www.conf
+  shell: sed -i 's/group = apache/group = nginx/g' /etc/php-fpm.d/www.conf
+  become: yes
+  
 - name: Start e habilitando no boot php-fpm
   service: name=php-fpm state=started enabled=yes
   become: yes
