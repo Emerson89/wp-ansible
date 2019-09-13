@@ -48,8 +48,3 @@
   shell: sed -i 's/group = apache/group = nginx/g' /etc/php-fpm.d/www.conf
   become: yes
   
-- name: Start e habilitando no boot php-fpm
-  service: name=php-fpm state=started enabled=yes
-  become: yes
-
-  
