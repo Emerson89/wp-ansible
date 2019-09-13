@@ -1,4 +1,4 @@
-- hosts: hosts
+- hosts: all
   
   roles:
      - php
