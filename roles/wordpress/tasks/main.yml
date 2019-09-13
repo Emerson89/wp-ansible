@@ -19,4 +19,7 @@
      dest: /usr/share/nginx/html/wordpress/wp-config.php
   become: yes
 
+- name: Start e habilitando no boot php-fpm
+  service: name=php-fpm state=started enabled=yes
+  become: yes
 
