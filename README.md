@@ -1,13 +1,6 @@
-wp-emerson
-Instalando wordpress com ansible
-Utilizado CentOS 7
-Instale ansible
-#yum install ansible -y
-
-No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks e /roles mantenha na raíz do diretório, a instalação foi feita em localhost edite o arquivo de inventário hosts.
-=======
 # wp-emerson
-## Instalando wordpress com ansible
+
+# Instalando wordpress com ansible
 
 ## Utilizado CentOS 7 ##
 
@@ -15,7 +8,7 @@ No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks
 
 #yum install ansible -y
 
-No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks e /roles mantenha na raíz do diretório, a instalação foi feita em localhost edite o arquivo de inventário hosts. 
+No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks e /roles mantenha na raíz do diretório, a instala� feita em localhost edite o arquivo de inventário hosts. 
 
 #vim hosts
 
