@@ -8,7 +8,13 @@
 
 #yum install ansible -y
 
-No diretorio /etc/ansible faça o clone do repositorio, diretorios /playbooks e /roles mantenha na raiz do diretorio, a instalacao foi feita em localhost edite o arquivo de inventorio hosts. 
+# Faça o clone do repositorio
+
+#git clone https://github.com/Emerson89/wp-emerson.git
+
+# Copie os diretorios /playbooks e /roles para o diretorio /etc/ansible, a instalacao foi feita em localhost edite o arquivo de inventorio hosts. 
+
+#cp -r wp-emerson/roles wp-emerson/playbooks /etc/ansible
 
 #vim hosts
 
