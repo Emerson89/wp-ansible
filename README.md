@@ -18,8 +18,8 @@ No diretorio /etc/ansible faça o clone do repositorio, diretorios /playbooks e 
 
 # Para testar comunicacao do host
 
-#ansible localhost -c local -i hosts -m ping
+#ansible localhost -c local -m ping
 
 ## Executar o arquivo #playbook.yml que se encontra no diretorio /playbooks
 
-#ansible-playbook -c local -i hosts playbooks/playbook.yml
+#ansible-playbook -c local playbooks/playbook.yml
