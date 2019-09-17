@@ -8,7 +8,7 @@
 
 #yum install ansible -y
 
-No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks e /roles mantenha na raíz do diretório, a instala� feita em localhost edite o arquivo de inventório hosts. 
+No diretorio /etc/ansible faça o clone do repotorio, direorios /playbooks e /roles mantenha na raiz do diretorio, a instalacao foi feita em localhost edite o arquivo de inventorio hosts. 
 
 #vim hosts
 
@@ -16,10 +16,10 @@ No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks
 
 127.0.0.1
 
-# Para testar comunicação do host
+# Para testar comunicacao do host
 
 #ansible localhost -c local -i hosts -m ping
 
-## Executar o arquivo #playbook.yml que se encontra no diretório /playbooks
+## Executar o arquivo #playbook.yml que se encontra no diretorio /playbooks
 
 #ansible-playbook -c local -i hosts playbooks/playbook.yml
