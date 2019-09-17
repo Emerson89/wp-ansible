@@ -6,7 +6,7 @@
 
 # Instale ansible 
 
-#yum install ansible -y
+# yum install ansible -y
 
 No diretorio /etc/ansible faça o clone do repositorio, diretorios /playbooks e /roles mantenha na raiz do diretorio, a instalacao foi feita em localhost edite o arquivo de inventorio hosts. 
 
