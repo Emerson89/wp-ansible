@@ -12,6 +12,7 @@ No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks
 #vim hosts
 
 [wordpress]
+
 127.0.0.1
 
 ## Para testar comunicação do host
