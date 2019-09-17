@@ -8,7 +8,7 @@
 
 #yum install ansible -y
 
-No diretorio /etc/ansible faça o clone do repositorio, diretorios /playbooks e /roles mantenha na raiz do diretorio, a instalacao foi feita em localhost edite o arquivo de inventorio hosts. 
+No diretorio /etc/ansible faça o clone do repositorio, diretorios /playbooks e /roles mantenha na raiz do diretorio, a instalacao foi feita em localhost edite o arquivo de inventorio hosts, caso precise adicionar novos hosts siga este modelo. 
 
 #vim hosts
 
