@@ -1,0 +1,25 @@
+---
+- name: Download do WordPress
+  get_url: 
+    url=https://wordpress.org/latest.tar.gz 
+    dest=/tmp/wordpress.tar.gz
+    validate_certs=no
+
+- name: Extraindo o wordpress
+  unarchive: src=/tmp/wordpress.tar.gz dest=/usr/share/nginx/html/ copy=no
+  become: yes
+
+- name: Criando página PHP info
+  shell: echo "<?php phpinfo (); ?>" > /usr/share/nginx/html/info.php
+  become: yes
+
+- name: Template arquivo wp-config
+  template:
+     src: wp-config.php.j2
+     dest: /usr/share/nginx/html/wordpress/wp-config.php
+  become: yes
+
+- name: Start e habilitando no boot php-fpm
+  service: name=php-fpm state=started enabled=yes
+  become: yes
+
