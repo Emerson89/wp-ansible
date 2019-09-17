@@ -9,8 +9,8 @@
 
 No diretório /etc/ansible faça o clone do repositório, diretórios /playbooks, /roles mantenha na raíz do diretório, a instalação foi feita em localhost edite o arquivo de inventário hosts. 
 
-## [wordpress]
-## 127.0.0.1
+[wordpress]
+127.0.0.1
 
 ## Para testar comunicação do host
 
