@@ -6,7 +6,7 @@
 
 # Instale ansible 
 
-#yum install ansible -y
+# yum install ansible -y
 
 # Faça o clone do repositorio
 
