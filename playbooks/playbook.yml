@@ -1,4 +1,4 @@
-- name: Aplicando Dependencias wordpress
+- name: Aplicando instalacao dependencias wordpress
   hosts: all
   become: yes 
    
