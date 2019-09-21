@@ -1,9 +1,29 @@
-- hosts: all
-  
+- name: Aplicando Dependencias wordpress
+  hosts: all
+  become: yes 
+   
   roles:
      - server
+
+- name: Aplicando instalacao e configuracao php
+  hosts: all
+  become: yes
+  
+  roles:
      - php
+
+- name: Aplicando configuracao de banco de dados
+  hosts: all
+  become: yes
+
+  roles:
      - mysql
+
+- name: Aplicando instalacao e configuracao wordpress
+  hosts: all
+  become: yes
+
+  roles:
      - wordpress
 
 
