@@ -1,4 +1,4 @@
-- name: Aplicando instalacao dependencias wordpress
+- name: Aplicando instalacao e dependencias 
   hosts: all
   become: yes 
    
@@ -19,7 +19,7 @@
   roles:
      - mysql
 
-- name: Aplicando instalacao e configuracao wordpress
+- name: Aplicando instalacao e configuracao Wordpress
   hosts: all
   become: yes
 
