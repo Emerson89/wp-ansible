@@ -6,15 +6,15 @@
     baseurl: http://nginx.org/packages/centos/$releasever/$basearch/
     gpgcheck: no
     enabled: yes
-  become: yes
+#  become: yes
 
 - name: Habilitando repo nginx
   shell: yum-config-manager --enable nginx-mainline
-  become: yes
+#  become: yes
 
 - name: Instalando Dependências do wordpress
   yum: name={{ item }} state=latest
-  become: yes
+#  become: yes
   with_items:
     - nginx
     - mariadb-server
@@ -23,14 +23,14 @@
  
 - name: Start MariaDB e habilita no boot
   service: name=mariadb state=restarted enabled=yes
-  become: yes
+#  become: yes
 
 - name: Template arquivo default.conf
   template:
      src: default.conf.j2
      dest: /etc/nginx/conf.d/default.conf
-  become: yes
+#  become: yes
 
 - name: Restart nginx e habilita no boot
   service: name=nginx state=restarted enabled=yes
-  become: yes
+#  become: yes
