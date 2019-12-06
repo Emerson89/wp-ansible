@@ -6,15 +6,15 @@
     validate_certs=no
 
 - name: Extraindo o wordpress
-  unarchive: src=/tmp/wordpress.tar.gz dest=/usr/share/nginx/html/ copy=no
+  unarchive: src=/tmp/wordpress.tar.gz dest=/tmp/ copy=no
 
-- name: Criando página PHP info
-  shell: echo "<?php phpinfo (); ?>" > /usr/share/nginx/html/info.php
+- name: Copiando arquivos wordpress
+  shell: cp -r /tmp/wordpress/* /usr/share/nginx/html/
 
 - name: Template arquivo wp-config
   template:
      src: wp-config.php.j2
-     dest: /usr/share/nginx/html/wordpress/wp-config.php
+     dest: /usr/share/nginx/html/wp-config.php
 
 - name: Start e habilitando no boot php-fpm
   service: name=php-fpm state=started enabled=yes
