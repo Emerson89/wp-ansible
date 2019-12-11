@@ -1,26 +1,26 @@
 - name: Aplicando instalacao e dependencias 
-  hosts: all
+  hosts: localhost
   become: yes 
    
   roles:
      - server
 
 - name: Aplicando instalacao e configuracao php
-  hosts: all
+  hosts: localhost
   become: yes
   
   roles:
      - php
 
 - name: Aplicando configuracao de banco de dados
-  hosts: all
+  hosts: localhost
   become: yes
 
   roles:
      - mysql
 
 - name: Aplicando instalacao e configuracao Wordpress
-  hosts: all
+  hosts: localhost
   become: yes
 
   roles:
