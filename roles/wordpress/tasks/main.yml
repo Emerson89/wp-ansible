@@ -7,9 +7,12 @@
 
 - name: Extracting the wordpress
   unarchive: src=/tmp/wordpress.tar.gz dest=/tmp/ copy=no
+ 
+- name: Moving archives wordpress
+  shell: mv /tmp/wordpress/* /usr/share/nginx/html/
 
-- name: Copy archive wordpress
-  shell: cp -r /tmp/wordpress/* /usr/share/nginx/html/
+- name: Removing archives wordpress
+  shell: cd /tmp && rm -rf wordpress.tar.gz
 
 - name: Template archive wp-config
   template:
