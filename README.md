@@ -12,9 +12,9 @@
 
 #git clone https://github.com/Emerson89/wp-emerson.git
 
-# Copie os diretorios /playbooks e /roles para o diretorio /etc/ansible, a instalacao foi feita em localhost edite o arquivo de inventario hosts. 
+# Mova os diretorios /playbooks e /roles para o diretorio /etc/ansible, a instalacao foi feita em localhost edite o arquivo de inventario hosts. 
 
-#cp -r wp-emerson/roles wp-emerson/playbooks /etc/ansible
+#mv wp-emerson/roles wp-emerson/playbooks /etc/ansible
 
 #vim hosts
 
