@@ -1,25 +1,25 @@
-- name: Aplicando instalacao e dependencias 
+- name: Applying installation and dependency 
   hosts: localhost
   become: yes 
    
   roles:
      - server
 
-- name: Aplicando instalacao e configuracao php
+- name: Applying installation php
   hosts: localhost
   become: yes
   
   roles:
      - php
 
-- name: Aplicando configuracao de banco de dados
+- name: Applying database configuration
   hosts: localhost
   become: yes
 
   roles:
      - mysql
 
-- name: Aplicando instalacao e configuracao Wordpress
+- name: Applying Wordpress installation and configuration
   hosts: localhost
   become: yes
 

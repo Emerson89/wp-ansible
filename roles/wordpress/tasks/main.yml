@@ -5,17 +5,17 @@
     dest=/tmp/wordpress.tar.gz
     validate_certs=no
 
-- name: Extraindo o wordpress
+- name: Extracting the wordpress
   unarchive: src=/tmp/wordpress.tar.gz dest=/tmp/ copy=no
 
-- name: Copiando arquivos wordpress
+- name: Copy archive wordpress
   shell: cp -r /tmp/wordpress/* /usr/share/nginx/html/
 
-- name: Template arquivo wp-config
+- name: Template archive wp-config
   template:
      src: wp-config.php.j2
      dest: /usr/share/nginx/html/wp-config.php
 
-- name: Start e habilitando no boot php-fpm
+- name: Start and enable boot php-fpm
   service: name=php-fpm state=started enabled=yes
 

@@ -1,5 +1,5 @@
 --- 
-- name: Adicionando repositório nginx
+- name: Add repository nginx
   yum_repository:
     name: nginx
     description: nginx repo
@@ -7,10 +7,10 @@
     gpgcheck: no
     enabled: yes
 
-- name: Habilitando repo nginx
+- name: Enabling repository nginx
   shell: yum-config-manager --enable nginx-mainline
 
-- name: Instalando Dependências do wordpress
+- name: Installing dependency wordpress
   yum: name={{ item }} state=latest
   with_items:
     - nginx
@@ -18,13 +18,13 @@
     - mariadb
     - MySQL-python 
  
-- name: Start MariaDB e habilita no boot
+- name: Start MariaDB and enable boot
   service: name=mariadb state=restarted enabled=yes
 
-- name: Template arquivo default.conf
+- name: Template archive default.conf
   template:
      src: default.conf.j2
      dest: /etc/nginx/conf.d/default.conf
 
-- name: Restart nginx e habilita no boot
+- name: Restart nginx and enable boot
   service: name=nginx state=restarted enabled=yes
