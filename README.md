@@ -1,20 +1,20 @@
 # wp-emerson
 
-# Instalando wordpress com ansible
+# Installing wordpress with ansible
 
-## Utilizado CentOS 7 ##
+## Used CentOS 7 ##
 
-# Instale ansible 
+# Install ansible
 
 #yum install ansible -y
 
-# Faça o clone do repositorio
+# Clone the repository
 
 #git clone https://github.com/Emerson89/wp-emerson.git
 
-# Mova os diretorios /playbooks e /roles para o diretorio /etc/ansible, a instalacao foi feita em localhost edite o arquivo de inventario hosts. 
+# Move the directories / playbooks and / roles to the / etc / ansible directory, the installation was done on localhost and edit the hosts inventory file.
 
-#mv wp-emerson/roles wp-emerson/playbooks /etc/ansible
+#mv wp-emerson / roles wp-emerson / playbooks / etc / ansible
 
 #vim hosts
 
@@ -22,10 +22,10 @@
 
 127.0.0.1
 
-# Para testar comunicacao do host
+# To test host communication
 
 #ansible localhost -c local -m ping
 
-## Executar o arquivo #playbook.yml que se encontra no diretorio /playbooks
+## Run the file # playbook.yml found in the directory / playbooks
 
-#ansible-playbook -c local playbooks/playbook.yml
+# ansible-playbook -c local playbooks / playbook.yml
