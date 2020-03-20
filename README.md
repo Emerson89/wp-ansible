@@ -2,7 +2,7 @@
 
 # Instalando wordpress com ansible
 
-## Utilizado CentOS 7 #
+## Utilizado CentOS 7 ##
 
 # Instale ansible 
 
