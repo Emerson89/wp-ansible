@@ -28,4 +28,4 @@
 
 ## Run the file # playbook.yml found in the directory / playbooks
 
-# ansible-playbook -c local playbooks / playbook.yml
+#ansible-playbook -c local playbooks / playbook.yml
