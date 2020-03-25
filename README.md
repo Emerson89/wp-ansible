@@ -1,6 +1,6 @@
 # wp-emerson
 
-# Installing wordpress with ansible
+# Installing wordpress with ansible 2.4.2.0
 
 ## Used CentOS 7 ##
 
