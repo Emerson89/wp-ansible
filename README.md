@@ -2,7 +2,7 @@
 
 # Installing wordpress with ansible 2.4.2.0
 
-## Used CentOS 7 ##
+## Used CentOS 7##
 
 # Edit inventory file, installation can be done on localhost.
 
