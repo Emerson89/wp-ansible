@@ -1,6 +1,6 @@
 # Installing wordpress with ansible
 
-## Dependências
+## Dependencies
 ![Badge](https://img.shields.io/badge/CentOS-7-blue)
 ![Badge](https://img.shields.io/badge/ansible-2.9.10-blue)
 
