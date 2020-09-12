@@ -1,23 +1,30 @@
-# wp-emerson
+# Installing wordpress with ansible
 
-# Installing wordpress with ansible 2.4.2.0
+## Dependências
+![Badge](https://img.shields.io/badge/CentOS-7-blue)
+![Badge](https://img.shields.io/badge/ansible-2.9.10-blue)
 
-## Used CentOS 7##
-
-# Edit inventory file, installation can be done on localhost.
-
-#vim hosts
-
-[wordpress]
-
-127.0.0.1
-
-# Access the wp-centos directory and execute the commands
+# Edit inventory file
 
 # To test host communication
+```
+ansible localhost -m ping
+```
 
-#ansible localhost -m ping
+## Playbook example
+```
+---
+- name: Install wordpress
+  hosts: all
+  become: yes
+  roles:
+  - server
+  - php
+  - mysql
+  - wordpress
+```
+ansible-playbook -i hosts playbook.yml
+```
+## License
+![Badge](https://img.shields.io/badge/license-GPLv3-green)
 
-## Run the file # playbook.yml
-
-#ansible-playbook playbook.yml
