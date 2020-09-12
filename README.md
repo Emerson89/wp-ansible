@@ -23,6 +23,7 @@ ansible localhost -m ping
   - mysql
   - wordpress
 ```
+```
 ansible-playbook -i hosts playbook.yml
 ```
 ## License
