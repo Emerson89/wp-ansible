@@ -1,2 +1,9 @@
 ---
 # vars file for server
+mysql_databases:
+  - name: "{{ wp_mysql_db }}"
+mysql_users:
+  - name: "{{ wp_mysql_user }}"
+    password:  "{{ wp_mysql_password }}"
+    priv: "{{ wp_mysql_db }}.*:ALL"
+

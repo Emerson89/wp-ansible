@@ -5,25 +5,4 @@
   roles:
      - server
 
-- name: Applying installation php
-  hosts: all
-  become: yes
-  
-  roles:
-     - php
-
-- name: Applying database configuration
-  hosts: all
-  become: yes
-
-  roles:
-     - mysql
-
-- name: Applying Wordpress installation and configuration
-  hosts: all
-  become: yes
-
-  roles:
-     - wordpress
-
 
