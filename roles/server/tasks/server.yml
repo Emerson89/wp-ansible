@@ -15,6 +15,7 @@
   with_items:
     - epel-release
     - yum-utils
+    - openssl
 
 - name: Installing dependency wordpress
   yum: name={{ item }} state=latest
@@ -66,6 +67,16 @@
     - php-gd 
     - php-curl 
     - php-mysqlnd
+
+- name: Mysql | Create a new pass for db user
+  command: openssl rand -base64 8
+  register: mysql_db_pass
+
+- name: Mysql | Display new pass in playbook output
+  debug:
+      msg: "New db pass: {{mysql_db_pass.stdout}}"
+  when: 
+    - mysql_db_pass.changed
 
 - name : Replacing user www.conf
   shell: |

@@ -9,7 +9,7 @@ docker run -ti $RUN_OPTS --detach --volume="${PWD}":/etc/ansible/roles/role_unde
 
 docker exec $DOCKER_CONTAINER_NAME ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml
 
-#docker exec -it $DOCKER_CONTAINER_NAME /bin/bash
+docker exec -it $DOCKER_CONTAINER_NAME /bin/bash
 
 docker stop $DOCKER_CONTAINER_NAME
 
