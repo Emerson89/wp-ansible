@@ -5,11 +5,25 @@
     dest=/tmp/wordpress.tar.gz
     validate_certs=no
 
+- name: Create a directory if it does not exist
+  file:
+    path: /var/www/html
+    state: directory
+    mode: '0755'
+
 - name: Extracting the wordpress
-  unarchive: src=/tmp/wordpress.tar.gz dest=/usr/share/nginx/html/ copy=no
+  unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/html copy=no
  
 - name: Template archive wp-config
   template:
      src: wp-config.php.j2
-     dest: /usr/share/nginx/html/wp-config.php
+     dest: /var/www/html/wordpress/wp-config.php
   notify: restart nginx
+
+- name : Replacing user www.conf
+  shell: |
+    sed -i 's/user = apache/user = nginx/g' /etc/php-fpm.d/www.conf
+    sed -i 's/group = apache/group = nginx/g' /etc/php-fpm.d/www.conf
+  notify: restart php
+  when: 
+   - ansible_distribution == "RedHat"

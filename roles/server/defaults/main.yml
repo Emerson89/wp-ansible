@@ -2,5 +2,22 @@
 # defaults file for server
 wp_mysql_db: MyWP
 wp_mysql_user: wpUser
-mysql_db_pass.stdout:
-zabbix_database_creation: true
+wp_mysql_password: worddb
+database_creation: true
+
+nginx_repo: nginx
+nginx_repo_yum:
+  - name: nginx
+    description: nginx stable repo - $basearch
+    baseurl: http://nginx.org/packages/centos/$releasever/$basearch/
+    gpgcheck: 1
+    enabled: 1
+    gpgkey: https://nginx.org/keys/nginx_signing.key
+    state: present
+  - name: nginx-mainline
+    description: nginx mainline repo 
+    baseurl: http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+    gpgcheck: 1
+    enabled: 0
+    gpgkey: https://nginx.org/keys/nginx_signing.key
+    state: present

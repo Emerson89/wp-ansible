@@ -1,0 +1,22 @@
+server {
+        listen 80;
+        server_name _; #Replace example.com with your intended domain name
+        root /var/www/html/wordpress; #Replace with your WordPress folder if necessary
+        index index.php;
+
+        location / {
+                try_files $uri $uri/ /index.php?$args;
+        }
+
+        location ~ \.php$ {
+                try_files $uri =404;
+        {% if ansible_distribution_major_version == "7" %}
+        fastcgi_pass 127.0.0.1:9000;
+        {% else %}
+        fastcgi_pass unix:/run/php-fpm/www.sock;
+        {% endif %}
+        fastcgi_index   index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}

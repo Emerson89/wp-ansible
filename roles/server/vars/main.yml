@@ -4,6 +4,6 @@ mysql_databases:
   - name: "{{ wp_mysql_db }}"
 mysql_users:
   - name: "{{ wp_mysql_user }}"
-    password:  "{{ mysql_db_pass.stdout }}"
+    password:  "{{ wp_mysql_password }}"
     priv: "{{ wp_mysql_db }}.*:ALL"
 

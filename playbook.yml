@@ -1,5 +1,5 @@
 - name: Applying installation and dependency 
-  hosts: localhost     
+  hosts: all 
   become: yes 
    
   roles:
