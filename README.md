@@ -42,4 +42,3 @@ ansible-playbook -i hosts playbook.yml
 ```
 ## License
 ![Badge](https://img.shields.io/badge/license-GPLv3-green)
-
