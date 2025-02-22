@@ -1,10 +1,14 @@
 server {
         listen 80;
         server_name _; #Replace example.com with your intended domain name
+
         root /var/www/html/wordpress; #Replace with your WordPress folder if necessary
         index index.php;
 
         location / {
+   {% if nginx_config %}
+                {{ nginx_config }}
+   {% endif %}
                 try_files $uri $uri/ /index.php?$args;
         }
 

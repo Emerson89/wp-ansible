@@ -1,4 +1,16 @@
 ---
+## nginx
+nginx_config: |
+  client_max_body_size 5G;
+  proxy_connect_timeout 70;
+
+## php.ini
+upload_max_filesize: 5048M
+post_max_size: 5048M
+memory_limit: 1024M
+max_execution_time: 1200
+max_input_time: 1200
+
 # defaults file for server
 wp_mysql_db: MyWP
 wp_mysql_user: wpUser

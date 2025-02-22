@@ -33,6 +33,12 @@
         - pip
     state: latest
 
+- name: Reset module php
+  shell: dnf module reset php -y
+
+- name: Enable module php
+  shell: dnf module enable php:7.4 -y
+
 - name: Install pip packages
   pip:
     name:
@@ -73,6 +79,12 @@
   template:
      src: nginx.conf.j2
      dest: /etc/nginx/nginx.conf
+
+- name: Template php.ini 
+  template:
+     src: php.ini.j2
+     dest: /etc/php.ini
+  notify: restart php   
 
 - name: Make sure nginx service is running
   systemd:
